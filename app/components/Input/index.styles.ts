@@ -3,16 +3,18 @@ import Colors from '../../styles/Colors';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingTop: 100,
-    paddingHorizontal: 20,
-    backgroundColor: Colors.PURPLE,
+    marginBottom: 60,
   },
-  title: {
-    fontSize: 40,
-    marginBottom: 80,
-    textAlign: 'center',
+  label: {
+    fontSize: 25,
     color: Colors.WHITE,
+  },
+  input: {
+    height: 40,
+    fontSize: 20,
+    borderBottomWidth: 2,
+    color: Colors.WHITE,
+    borderColor: Colors.WHITE,
   },
 });
 
