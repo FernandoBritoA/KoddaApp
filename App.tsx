@@ -1,8 +1,6 @@
 import React from 'react';
-import {View} from 'react-native';
+import RootStack from './app/screens/RootStack';
 
-type PropsT = {};
-
-const App: React.FC<PropsT> = ({}) => <View />;
+const App: React.FC = () => <RootStack />;
 
 export default App;
