@@ -13,7 +13,7 @@ export type HasErrorResponse = Promise<{hasError: boolean}>;
 export interface SessionContextT {
   currentSession: UserSessionT | null;
   availableSessions: AvailableSessionsT;
-  onLogout: () => void;
+  onLogout: () => Promise<void>;
   onLogin: (userKeys: UserKeysT) => HasErrorResponse;
   onCreateSession: (newSession: UserSessionT) => HasErrorResponse;
 }

@@ -4,7 +4,7 @@ import {SessionContextT} from './types';
 const SessionContext = createContext<SessionContextT>({
   currentSession: null,
   availableSessions: {},
-  onLogout: () => {},
+  onLogout: async () => {},
   onLogin: async userKeys => {
     void userKeys;
 

@@ -16,8 +16,8 @@ const UsersList: React.FC<PropsT> = ({navigation}) => {
   const {currentSession, onLogout} = useSessionContext();
   const {users, isLoading, onEndReached} = useFetchUsers();
 
-  const onCloseSession = () => {
-    onLogout();
+  const onCloseSession = async () => {
+    await onLogout();
     navigation.navigate(routes.Login);
   };
 

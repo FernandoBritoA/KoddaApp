@@ -57,7 +57,10 @@ const SessionContextProvider: React.FC<PropsT> = ({children}) => {
     return {hasError: !validCredentials};
   };
 
-  const onLogout = () => setCurrentSession(null);
+  const onLogout = async () => {
+    setCurrentSession(null);
+    await setStorageItem('@current_session', null);
+  };
 
   return (
     <SessionContext.Provider
