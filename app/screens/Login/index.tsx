@@ -5,6 +5,8 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {RootStackParamList} from '../../types/navigation/RootStackParamList';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import {useSessionContext} from '../../context/SessionContext/context';
+import {showErrorToast} from '../../utilities/toast';
 import routes from '../../modules/routes';
 import styles from './index.styles';
 
@@ -14,7 +16,19 @@ const Login: React.FC<PropsT> = ({navigation}) => {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
+  const {onLogin} = useSessionContext();
+
   const onContinue = () => {
+    if (!username || !password) {
+      return showErrorToast('All fields are required');
+    }
+
+    const {hasError} = onLogin({username, password});
+
+    if (hasError) {
+      return showErrorToast('Invalid credentials');
+    }
+
     navigation.navigate(routes.UsersList);
   };
 

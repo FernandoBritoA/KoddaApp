@@ -5,6 +5,8 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../types/navigation/RootStackParamList';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import {useSessionContext} from '../../context/SessionContext/context';
+import {showErrorToast} from '../../utilities/toast';
 import routes from '../../modules/routes';
 import styles from './index.styles';
 
@@ -15,19 +17,26 @@ const SignUp: React.FC<PropsT> = ({navigation}) => {
   const [password, setPassword] = useState<string>('');
   const [username, setUsername] = useState<string>('');
 
+  const {onCreateSession} = useSessionContext();
+
   const onCreateAccount = () => {
+    if (!name || !password || !username) {
+      return showErrorToast('All fields are required');
+    }
+
+    const {hasError} = onCreateSession({name, password, username});
+
+    if (hasError) {
+      return showErrorToast('This username is already taken');
+    }
+
     navigation.goBack();
   };
 
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Sign Up</Text>
-      <Input
-        label="Name"
-        value={name}
-        textContentType="username"
-        onChangeText={setName}
-      />
+      <Input label="Name" value={name} textContentType="username" onChangeText={setName} />
       <Input
         label="Username"
         value={username}

@@ -12,16 +12,8 @@ const RootStack = createNativeStackNavigator<RootStackParamList>();
 const RootStackNavigator: React.FC = () => (
   <NavigationContainer>
     <RootStack.Navigator>
-      <RootStack.Screen
-        component={Login}
-        name={routes.Login}
-        options={{headerShown: false}}
-      />
-      <RootStack.Screen
-        component={SignUp}
-        name={routes.SignUp}
-        options={{headerShown: false, presentation: 'modal'}}
-      />
+      <RootStack.Screen component={Login} name={routes.Login} options={{headerShown: false}} />
+      <RootStack.Screen component={SignUp} name={routes.SignUp} options={{headerShown: false}} />
       <RootStack.Screen
         component={UsersList}
         name={routes.UsersList}
