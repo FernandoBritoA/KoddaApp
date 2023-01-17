@@ -5,6 +5,7 @@ import {RootStackParamList} from '../types/navigation/RootStackParamList';
 import Login from './Login';
 import SignUp from './SignUp';
 import UsersList from './UsersList';
+import usersListHeaderOptions from './UsersList/users-list-header-options';
 import routes from '../modules/routes';
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -17,7 +18,7 @@ const RootStackNavigator: React.FC = () => (
       <RootStack.Screen
         component={UsersList}
         name={routes.UsersList}
-        options={{headerShown: false, gestureEnabled: false}}
+        options={usersListHeaderOptions}
       />
     </RootStack.Navigator>
   </NavigationContainer>

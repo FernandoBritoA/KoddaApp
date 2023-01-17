@@ -1,13 +1,18 @@
 import {StyleSheet} from 'react-native';
+import Colors from '../../styles/Colors';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 100,
     paddingHorizontal: 20,
   },
   listContainer: {
-    paddingBottom: 50,
+    paddingVertical: 50,
+  },
+  headerLeft: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: Colors.WHITE,
   },
 });
 
