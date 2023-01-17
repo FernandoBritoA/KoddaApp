@@ -25,7 +25,7 @@ const UsersList: React.FC<PropsT> = ({navigation}) => {
     useCallback(() => {
       navigation.setOptions({
         title: `Welcome ${currentSession?.name}`,
-        headerLeft: () => (
+        headerRight: () => (
           <Text style={styles.headerLeft} onPress={onCloseSession}>
             Logout
           </Text>
