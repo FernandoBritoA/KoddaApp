@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Text} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Input from '../../components/Input';
+import Button from '../../components/Button';
 import styles from './index.styles';
 
 type PropsT = {};
@@ -9,6 +10,8 @@ type PropsT = {};
 const Login: React.FC<PropsT> = ({}) => {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+
+  const onContinue = () => {};
 
   return (
     <SafeAreaView style={styles.container}>
@@ -26,6 +29,7 @@ const Login: React.FC<PropsT> = ({}) => {
         onChangeText={setPassword}
         textContentType="password"
       />
+      <Button text="CONTINUE" onPress={onContinue} />
     </SafeAreaView>
   );
 };
