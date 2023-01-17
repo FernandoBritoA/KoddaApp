@@ -3,6 +3,7 @@ import {Text} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../types/navigation/RootStackParamList';
+import KeyboardContainer from '../../components/KeyboardContianer';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import {useSessionContext} from '../../context/SessionContext/context';
@@ -41,7 +42,7 @@ const SignUp: React.FC<PropsT> = ({navigation}) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <KeyboardContainer style={styles.container} scrollStyle={styles.scrollContainer}>
       <Text style={styles.title}>Sign Up</Text>
       <Input label="Name" value={name} textContentType="username" onChangeText={setName} />
       <Input
@@ -58,7 +59,7 @@ const SignUp: React.FC<PropsT> = ({navigation}) => {
         textContentType="password"
       />
       <Button text="CREATE ACCOUNT" onPress={onCreateAccount} />
-    </SafeAreaView>
+    </KeyboardContainer>
   );
 };
 

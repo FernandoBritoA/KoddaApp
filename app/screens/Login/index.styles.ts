@@ -3,10 +3,12 @@ import Colors from '../../styles/Colors';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingTop: 100,
-    paddingHorizontal: 20,
     backgroundColor: Colors.PURPLE,
+  },
+  scrollStyle: {
+    paddingTop: 100,
+    paddingBottom: 20,
+    paddingHorizontal: 20,
   },
   title: {
     fontSize: 40,

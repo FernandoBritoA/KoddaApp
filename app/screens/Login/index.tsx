@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {Text} from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {SafeAreaView} from 'react-native-safe-area-context';
 import {RootStackParamList} from '../../types/navigation/RootStackParamList';
+import KeyboardContianer from '../../components/KeyboardContianer';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import {useSessionContext} from '../../context/SessionContext/context';
@@ -44,7 +44,7 @@ const Login: React.FC<PropsT> = ({navigation}) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <KeyboardContianer style={styles.container} scrollStyle={styles.scrollStyle}>
       <Text style={styles.title}>Login</Text>
       <Input
         label="Username"
@@ -63,7 +63,7 @@ const Login: React.FC<PropsT> = ({navigation}) => {
       <Text style={styles.bottomText} onPress={onCreateAccount}>
         Create Account
       </Text>
-    </SafeAreaView>
+    </KeyboardContianer>
   );
 };
 
