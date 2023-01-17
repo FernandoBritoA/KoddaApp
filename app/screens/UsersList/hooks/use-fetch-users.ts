@@ -18,11 +18,15 @@ const useFetchUsers = (): ReturnT => {
   }, [page]);
 
   const fetch = async (newPage: number) => {
-    const url = `https://randomuser.me/api/?page=${newPage}&results=10`;
-    setIsLoading(true);
-    const response = await axios.get(url);
-    setUsers(prevState => [...prevState, ...response.data.results]);
-    setIsLoading(false);
+    try {
+      const url = `https://randomuser.me/api/?page=${newPage}&results=10`;
+      setIsLoading(true);
+      const response = await axios.get(url);
+      setUsers(prevState => [...prevState, ...response.data.results]);
+      setIsLoading(false);
+    } catch (e) {
+      // TODO: Error handling
+    }
   };
 
   const onEndReached = () => setPage(prevState => prevState + 1);
