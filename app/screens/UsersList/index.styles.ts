@@ -6,6 +6,9 @@ const styles = StyleSheet.create({
     paddingTop: 100,
     paddingHorizontal: 20,
   },
+  listContainer: {
+    paddingBottom: 50,
+  },
 });
 
 export default styles;
