@@ -5,12 +5,12 @@ const SessionContext = createContext<SessionContextT>({
   currentSession: null,
   availableSessions: {},
   onLogout: () => {},
-  onLogin: userKeys => {
+  onLogin: async userKeys => {
     void userKeys;
 
     return {hasError: false};
   },
-  onCreateSession: newSession => {
+  onCreateSession: async newSession => {
     void newSession;
 
     return {hasError: false};

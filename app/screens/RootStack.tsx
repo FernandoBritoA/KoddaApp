@@ -10,10 +10,16 @@ import routes from '../modules/routes';
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 
-const RootStackNavigator: React.FC = () => (
+type PropsT = {isLoggedIn: boolean};
+
+const RootStackNavigator: React.FC<PropsT> = ({isLoggedIn}) => (
   <NavigationContainer>
-    <RootStack.Navigator>
-      <RootStack.Screen component={Login} name={routes.Login} options={{headerShown: false}} />
+    <RootStack.Navigator initialRouteName={isLoggedIn ? routes.UsersList : routes.Login}>
+      <RootStack.Screen
+        component={Login}
+        name={routes.Login}
+        options={{headerShown: false, gestureEnabled: false}}
+      />
       <RootStack.Screen component={SignUp} name={routes.SignUp} options={{headerShown: false}} />
       <RootStack.Screen
         component={UsersList}

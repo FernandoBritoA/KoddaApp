@@ -23,12 +23,12 @@ const Login: React.FC<PropsT> = ({navigation}) => {
     setUsername('');
   };
 
-  const onContinue = () => {
+  const onContinue = async () => {
     if (!username || !password) {
       return showErrorToast('All fields are required');
     }
 
-    const {hasError} = onLogin({username, password});
+    const {hasError} = await onLogin({username, password});
 
     if (hasError) {
       return showErrorToast('Invalid credentials');

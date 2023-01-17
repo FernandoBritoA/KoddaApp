@@ -25,12 +25,12 @@ const SignUp: React.FC<PropsT> = ({navigation}) => {
     setUsername('');
   };
 
-  const onCreateAccount = () => {
+  const onCreateAccount = async () => {
     if (!name || !password || !username) {
       return showErrorToast('All fields are required');
     }
 
-    const {hasError} = onCreateSession({name, password, username});
+    const {hasError} = await onCreateSession({name, password, username});
 
     if (hasError) {
       return showErrorToast('This username is already taken');

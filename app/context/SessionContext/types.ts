@@ -8,7 +8,7 @@ export type AvailableSessionsT = {[username: string]: UserSessionT};
 
 export type UserKeysT = {username: string; password: string};
 
-export type HasErrorResponse = {hasError: boolean};
+export type HasErrorResponse = Promise<{hasError: boolean}>;
 
 export interface SessionContextT {
   currentSession: UserSessionT | null;

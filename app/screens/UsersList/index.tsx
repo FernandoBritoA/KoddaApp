@@ -18,7 +18,7 @@ const UsersList: React.FC<PropsT> = ({navigation}) => {
 
   const onCloseSession = () => {
     onLogout();
-    navigation.goBack();
+    navigation.navigate(routes.Login);
   };
 
   useFocusEffect(
