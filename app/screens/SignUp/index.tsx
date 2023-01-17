@@ -19,6 +19,12 @@ const SignUp: React.FC<PropsT> = ({navigation}) => {
 
   const {onCreateSession} = useSessionContext();
 
+  const resetData = () => {
+    setName('');
+    setPassword('');
+    setUsername('');
+  };
+
   const onCreateAccount = () => {
     if (!name || !password || !username) {
       return showErrorToast('All fields are required');
@@ -30,6 +36,7 @@ const SignUp: React.FC<PropsT> = ({navigation}) => {
       return showErrorToast('This username is already taken');
     }
 
+    resetData();
     navigation.goBack();
   };
 

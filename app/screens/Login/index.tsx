@@ -18,6 +18,11 @@ const Login: React.FC<PropsT> = ({navigation}) => {
 
   const {onLogin} = useSessionContext();
 
+  const resetData = () => {
+    setPassword('');
+    setUsername('');
+  };
+
   const onContinue = () => {
     if (!username || !password) {
       return showErrorToast('All fields are required');
@@ -29,10 +34,14 @@ const Login: React.FC<PropsT> = ({navigation}) => {
       return showErrorToast('Invalid credentials');
     }
 
+    resetData();
     navigation.navigate(routes.UsersList);
   };
 
-  const onCreateAccount = () => navigation.navigate(routes.SignUp);
+  const onCreateAccount = () => {
+    resetData();
+    navigation.navigate(routes.SignUp);
+  };
 
   return (
     <SafeAreaView style={styles.container}>

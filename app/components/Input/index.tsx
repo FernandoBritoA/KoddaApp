@@ -9,7 +9,7 @@ type PropsT = {
 const Input: React.FC<PropsT> = ({label, ...textInputProps}) => (
   <View style={styles.container}>
     <Text style={styles.label}>{label}</Text>
-    <TextInput {...textInputProps} style={styles.input} autoCorrect={false} />
+    <TextInput {...textInputProps} style={styles.input} autoCorrect={false} autoCapitalize="none" />
   </View>
 );
 
