@@ -1,28 +1,33 @@
 import React, {useState} from 'react';
 import {Text} from 'react-native';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../types/navigation/RootStackParamList';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import routes from '../../modules/routes';
 import styles from './index.styles';
 
-type PropsT = NativeStackScreenProps<RootStackParamList, routes.Login>;
+type PropsT = NativeStackScreenProps<RootStackParamList, routes.SignUp>;
 
-const Login: React.FC<PropsT> = ({navigation}) => {
-  const [username, setUsername] = useState<string>('');
+const SignUp: React.FC<PropsT> = ({navigation}) => {
+  const [name, setName] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [username, setUsername] = useState<string>('');
 
-  const onContinue = () => {
-    navigation.navigate(routes.UsersList);
+  const onCreateAccount = () => {
+    navigation.goBack();
   };
-
-  const onCreateAccount = () => navigation.navigate(routes.SignUp);
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Login</Text>
+      <Text style={styles.title}>Sign Up</Text>
+      <Input
+        label="Name"
+        value={name}
+        textContentType="username"
+        onChangeText={setName}
+      />
       <Input
         label="Username"
         value={username}
@@ -36,12 +41,9 @@ const Login: React.FC<PropsT> = ({navigation}) => {
         onChangeText={setPassword}
         textContentType="password"
       />
-      <Button text="CONTINUE" onPress={onContinue} />
-      <Text style={styles.bottomText} onPress={onCreateAccount}>
-        Create Account
-      </Text>
+      <Button text="CREATE ACCOUNT" onPress={onCreateAccount} />
     </SafeAreaView>
   );
 };
 
-export default Login;
+export default SignUp;

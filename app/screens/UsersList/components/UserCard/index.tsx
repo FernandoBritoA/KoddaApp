@@ -1,8 +1,8 @@
 import React from 'react';
 import {Image, View} from 'react-native';
 import {UserT} from '../../../../types/User';
-import styles from './index.styles';
 import UserRow from './user-row';
+import styles from './index.styles';
 
 type PropsT = {
   user: UserT;

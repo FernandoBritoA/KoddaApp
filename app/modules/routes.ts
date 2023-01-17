@@ -1,5 +1,6 @@
 enum routes {
   Login = 'Login',
+  SignUp = 'SignUp',
   UsersList = 'UsersList',
 }
 
