@@ -3,6 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {RootStackParamList} from '../types/navigation/RootStackParamList';
 import Login from './Login';
+import UsersList from './UsersList';
 import routes from '../modules/routes';
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -14,6 +15,11 @@ const RootStackNavigator: React.FC = () => (
         component={Login}
         name={routes.Login}
         options={{headerShown: false}}
+      />
+      <RootStack.Screen
+        component={UsersList}
+        name={routes.UsersList}
+        options={{headerShown: false, gestureEnabled: false}}
       />
     </RootStack.Navigator>
   </NavigationContainer>
