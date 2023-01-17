@@ -38,6 +38,8 @@ const UsersList: React.FC<PropsT> = ({navigation}) => {
     <View style={styles.container}>
       <FlatList
         data={users}
+        initialNumToRender={10}
+        maxToRenderPerBatch={10}
         contentContainerStyle={styles.listContainer}
         onEndReached={onEndReached}
         showsVerticalScrollIndicator={false}

@@ -29,7 +29,11 @@ const useFetchUsers = (): ReturnT => {
     }
   };
 
-  const onEndReached = () => setPage(prevState => prevState + 1);
+  const onEndReached = () => {
+    if (!isLoading) {
+      setPage(prevState => prevState + 1);
+    }
+  };
 
   return {users, isLoading, onEndReached};
 };
